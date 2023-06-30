@@ -64,20 +64,20 @@ addProduct(product : any){
   return this.http.post(this.baseUrl, product, { headers });
 }
 
-updateProduct(product : any, oldProductName : any){
+updateProduct(product : any, oldProductId : any){
   // const username = sessionStorage.getItem('username');
   // const password = sessionStorage.getItem('password');
   const headers = new HttpHeaders()
   .set('Authorization', 'Basic ' + btoa(this.username + ':' + this.password));
-  return this.http.put(this.baseUrl + '/' + oldProductName,   product, { headers });
+  return this.http.put(this.baseUrl + '/' + oldProductId,   product, { headers });
 }
 
-deleteProduct(productName : string){
+deleteProduct(productId : string){
   // const username = sessionStorage.getItem('username');
   // const password = sessionStorage.getItem('password');
   const headers = new HttpHeaders()
   .set('Authorization', 'Basic ' + btoa(this.username + ':' + this.password));
-  return this.http.delete(this.baseUrl + '/' + productName, { headers } );
+  return this.http.delete(this.baseUrl + '/' + productId, { headers } );
 }
 
 
@@ -107,7 +107,7 @@ deleteProduct(productName : string){
 
   update(product: any) {
     console.log("this is old product name " + product);
-    let oldProductName = product.productName;
+    let oldProductId = product.productId;
     let productName = window.prompt('Enter the product name!');
     let departmentName = window.prompt('Enter the department name!');
 
@@ -119,7 +119,7 @@ deleteProduct(productName : string){
       productName: product.productName,
       deptName: product.deptName,
     };
-    this.updateProduct(productFormData, oldProductName).subscribe({
+    this.updateProduct(productFormData, oldProductId).subscribe({
       next: (v) => console.log('Product updated successfully'),
       error: (err) => console.log('Error updating product'),
     });
@@ -128,12 +128,12 @@ deleteProduct(productName : string){
 
   
   delete(product: any) {
-    const productToDelete = {
-      productName: product.productName,
-      deptName: product.deptName,
-    };
-    console.log(productToDelete.productName + ' ' + productToDelete.deptName);
-    this.deleteProduct(productToDelete.productName).subscribe({
+    // const productToDelete = {
+    //   productName: product.productName,
+    //   deptName: product.deptName,
+    // };
+    // console.log(productToDelete.productName + ' ' + productToDelete.deptName);
+    this.deleteProduct(product.productId).subscribe({
       next: (v) => {
         console.log('Product deleted successfully' + v);
         this.productData = this.productData.filter((p: any) => p.productName !== product.productName);
