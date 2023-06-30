@@ -1,0 +1,12 @@
+.card{
+    background-color: #222222b8;
+    margin-top: 70px;
+    width: 300px;
+    position: relative;
+    left: 38%;
+}
+
+.card-body{
+    background-color: #222222b8;
+    color: white;
+}

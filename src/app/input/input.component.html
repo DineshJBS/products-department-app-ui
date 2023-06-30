@@ -1,0 +1,22 @@
+<div class="form-outline flex-fill mb-0">
+    <label class="form-label" for="form3Example1c">{{ label }}</label>
+    <input [type]="type" id="form3Example1c" class="form-control" 
+    [formControl]="control"
+    
+    /> 
+</div>
+<ng-container  *ngIf="control.errors && control.dirty && control.touched">
+    <div class="text-danger" *ngIf="control.hasError('required')">
+      Value is required
+    </div>
+    <div class="text-danger" *ngIf="control.hasError('pattern')">
+        email format is invalid
+      </div>
+      <div class="text-danger" *ngIf="control.hasError('minlength')">
+        
+        Value you entered is
+        {{ control.errors["minlength"].actualLength }} characters long, but it
+        must be atleast {{ control.errors["minlength"].requiredLength }}
+     
+      </div>
+</ng-container>

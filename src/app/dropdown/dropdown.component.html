@@ -1,0 +1,6 @@
+<select class="form-select form-select-sm" [(ngModel)]="selectedProduct" style="color: black; background-color: white;" >
+  <option selected>Click to view the products</option>
+  <option *ngFor="let product of options" [value]="product.productName">{{ product.productName }}</option>
+</select>
+
+
