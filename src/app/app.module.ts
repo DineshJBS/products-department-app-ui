@@ -50,8 +50,11 @@ const routers: Routes = [
     path: 'blog',
     component: BlogComponent,
     canActivate: [isUserLoggedInGuard],
+    
   },
+  { path : 'product-department', component:ProductTableComponent, canActivate: [isUserLoggedInGuard]},
   { path: '**', component: SigninbroComponent },
+ 
 ];
 
 @NgModule({

@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,21 +7,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-table.component.css']
 })
 export class ProductTableComponent {
-  // data = [ 
-  //   { name : 'James', age : 24, job : 'Designer', employed : true},
-  //   { name : 'Jill', age : 26, job : 'Engineer', employed : false},
-  //   { name : 'Alice', age : 25, job : 'Engineer', employed : false}
-  // ];
+  username! : string;
+  password! : string;
+  productsDepartmentsData : any;
 
-  // headers = [
-  //   { key : 'employed', label : 'Has a job'},
-  //   {key : 'name', label : 'Name'},
-  //   { key : 'age', label : 'Age'},
-  //   { key : 'job', label : 'Job'}
-  // ];
 
-  data = [
-    { name : 'Water Bottle', department : 'Plastic', }
-  ]
+  constructor(private http: HttpClient) {}
+  baseUrl: string = 'http://localhost:8080/productsAndDepartments';
+ 
+  ngOnInit(){
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    if (username && password) {
+      this.username = username;
+      this.password = password;
+    }
 
+    this.getProductsAndDepartments().subscribe((data: any) => {
+      this.productsDepartmentsData = data;
+
+      console.log(' data :');
+      console.log(this.productsDepartmentsData);
+    });
+  }
+  getProductsAndDepartments() {
+    console.log(this.username + " " + this.password)
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Basic ' + btoa(this.username + ':' + this.password)
+    );
+    return this.http.get(this.baseUrl, { headers });
+
+  }
 }

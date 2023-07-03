@@ -1,12 +1,20 @@
-.card{
-    background-color: #222222b8;
-    margin-top: 70px;
-    width: 300px;
-    position: relative;
-    left: 38%;
-}
-
-.card-body{
-    background-color: #222222b8;
-    color: white;
-}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+    width: 100%;
+  }
+  #submit{
+    margin-top: 5px;
+  }

@@ -1,26 +1,23 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   [x: string]: any;
 
-  constructor() { }
+  constructor() {}
 
   loginString = localStorage.getItem('isUserLoggedIn');
 
-  isUserLoggedIn! : boolean;
+  isUserLoggedIn!: boolean;
 
- checkLogin(){
-  if(localStorage.getItem('isUserLoggedIn') === 'true'){
-    console.log("From Auth service loginString value : " + this.loginString)
-    return this.isUserLoggedIn = true;
+  checkLogin() {
+    if (localStorage.getItem('isUserLoggedIn') === 'true') {
+      console.log('From Auth service loginString value : ' + this.loginString);
+      return (this.isUserLoggedIn = true);
+    }
+
+    return (this.isUserLoggedIn = false);
   }
-  
-    return this.isUserLoggedIn =false;
-  
- }
-
-
 }

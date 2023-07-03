@@ -40,7 +40,7 @@ export class SignupComponent {
       name: this.signupForm.value.userName,
       email: this.signupForm.value.email,
       password: this.signupForm.value.password,
-      roles : "ROLE_USER"
+      roles: 'ROLE_USER',
     };
 
     this.customerService.addCustomer(customerData).subscribe({

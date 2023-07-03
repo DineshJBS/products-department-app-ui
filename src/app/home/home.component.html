@@ -1,47 +1,46 @@
 <app-navbar></app-navbar>
-<div class="card">
+<div class="container">
+  <div class="card">
     <div class="card-body">
-     <form 
-     [formGroup]="product"
-                  (ngSubmit)="onSubmit()"
-     >
-        <label class="label">Add Product</label>
-        <app-input label="" [control]="product.controls.productName"></app-input>
-        <br>
-        <label class="label">Department : </label>
-        <app-input label="" [control]="product.controls.department"></app-input>
-<br>
-        <button type="submit" class="btn btn-primary" >
-            add
+      <form [formGroup]="product" (ngSubmit)="onSubmit()" class="form">
+        <div class="form-group">
+          <label class="label">Add Product</label>
+          <app-input label="" [control]="product.controls.productName"></app-input>
+        </div>
+        <div class="form-group">
+          <label class="label">Department:</label>
+          <app-input label="" [control]="product.controls.department"></app-input>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary" id="submit">
+            Add
           </button>
-     </form>
-      
+        </div>
+      </form>
     </div>
   </div>
-  <!-- <div>Form Content : {{ product.value | json }}</div>
-  <div>Form is valid ? : {{ product.valid | json }}</div> -->
-<hr>
-
-  <table class="table table-striped table-dark">
+  
+ 
+  
+</div>
+<div class="table-responsive">
+  <table class="table table-striped table-light">
     <thead>
       <tr>
-        <th scope="col">id</th>
+        <th scope="col">ID</th>
         <th scope="col">Product Name</th>
-        <!-- <th scope="col">Department</th> -->
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-      
       <tr *ngFor="let product of productData; let i = index;">
-        <td> {{ product.productId }}</td>
-        <td> {{ product.productName }}</td>
-        <!-- <td>{{ product.department }}</td> -->
+        <td>{{ product.productId }}</td>
+        <td>{{ product.productName }}</td>
         <td>
-          <button class="btn btn-primary btn-sm " (click)="delete(product)">Delete</button > | <button (click)="update(product)" class="btn btn-primary btn-sm">Update</button>
+          <button class="btn btn-danger btn-sm" (click)="delete(product)">Delete</button> |
+          <button (click)="update(product)" class="btn btn-primary btn-sm">Update</button>
         </td>
-        
       </tr>
-      
     </tbody>
   </table>
+</div>
