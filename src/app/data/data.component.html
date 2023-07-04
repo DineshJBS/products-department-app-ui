@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-6">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let department of departmentData">
+          <a (click)="displayProductsFromDepartment(department)">
+            {{ department.deptName }}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-6" [hidden]="hidebox">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let product of productsList">
+           {{ product.productName }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

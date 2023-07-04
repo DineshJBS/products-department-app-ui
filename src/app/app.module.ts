@@ -31,6 +31,8 @@ import { isUserLoggedInGuard } from './shared/auth.guard';
 import { SigninbroComponent } from './signinbro/signinbro.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { DataComponent } from './data/data.component';
+// import { DataComponent } from './data/data.component';
 
 const routers: Routes = [
   { path: '', component: SignupComponent },
@@ -52,8 +54,12 @@ const routers: Routes = [
     canActivate: [isUserLoggedInGuard],
     
   },
+  {
+    path :'data' , component : DataComponent, canActivate: [isUserLoggedInGuard]
+  },
   { path : 'product-department', component:ProductTableComponent, canActivate: [isUserLoggedInGuard]},
   { path: '**', component: SigninbroComponent },
+  
  
 ];
 
@@ -72,6 +78,7 @@ const routers: Routes = [
     BlogComponent,
     SigninbroComponent,
     DropdownComponent,
+    DataComponent,
   ],
   imports: [
     BrowserModule,
