@@ -79,13 +79,15 @@ export class SigninComponent {
           }
           if (statusCode === 200) {
             localStorage.setItem('isUserLoggedIn', 'true');
-            this.router.navigate(['/home']);
+            this.router.navigate(['/blog']);
           }
 
           return throwError(error);
         })
       )
-      .subscribe((response) => (response: any) => {});
+      .subscribe((response) => (response: any) => {
+        console.log(response)
+      });
   }
 
   validateUser(userInfo: any) {

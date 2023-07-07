@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="table-responsive">
+    <table class="table table-striped table-light">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Product Price</th>
+          <th scope="col">Total price to pay : </th>
+          
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of cartProductsForView; let i = index;">
+          <td>{{ i+1 }}</td>
+          
+          <td>{{ product.productName }}</td>
+          <td>{{ product.price }}</td>
+          
+          <td>{{ totalPrice }}</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+  <div class="button-container">
+    <button class="btn btn-primary btn-sm" (click)="buyNow()">Buy Now</button>
+    <button class="btn btn-primary btn-sm" (click)="emptyCart()">Empty Cart</button>
+  </div>
+  

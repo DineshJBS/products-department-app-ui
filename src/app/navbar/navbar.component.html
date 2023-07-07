@@ -1,34 +1,88 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="#">LetsShop</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/blog" style="color: white;">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home" style="color: white;">Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/department" style="color: white;">Department</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/product-department" style="color: white;">Product -Department</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/data" style="color: white;">Products Data</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/signin" style="color: white;" (click)="signOut()">Sign Out</a>
-          </li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+  <div class="container-fluid position-relative ">
+    <!-- <div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ adminOrUser }}
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="toggleAdmin()">User</a></li>
+          <li><a class="dropdown-item" (click)="toggleAdmin()">Admin</a></li>
+          
         </ul>
       </div>
+      
+      
+    </div> -->
+    <a class="navbar-brand mx-2" href="#">LetsShop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/blog" style="color: white">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" style="color: white">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/department" style="color: white">Department</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/product-department" style="color: white">Product -Department</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/data" style="color: white">Products Data</a>
+        </li> -->
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/blog" style="color: white">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/home" style="color: white">Products</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/department" style="color: white">Department</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/product-department" style="color: white">Product -Department</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/data" style="color: white">Products Data</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/role" style="color: white">Role</a>
+        </li>
+
+        
+
+        <li class="nav-item" *ngIf="!isAdmin">
+          <a class="nav-link" routerLink="/myorders" style="color: white">My Orders</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAdmin">
+          <a class="nav-link" routerLink="/productList" style="color: white">Products List</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAdmin">
+          <a class="nav-link" routerLink="/cart" style="color: white">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/signin" style="color: white" (click)="signOut()">Sign Out</a>
+        </li>
+        <div class="btn-group" *ngIf="isAdmin" >
+          <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Admin
+          </button>
+          <ul class="dropdown-menu">
+            <a class="nav-link" routerLink="/myorders" style="color: rgb(9, 9, 9)">My Orders</a>
+            <a class="nav-link" routerLink="/productList" style="color: rgb(9, 9, 9)">Products List</a>
+            <a class="nav-link" routerLink="/cart" style="color: rgb(9, 9, 9)">Cart</a>
+          </ul>
+        </div>
+      </ul>
+       
+
+      
     </div>
-  </nav>
-  
-  <!-- <app-home></app-home> -->
-  
+  </div>
+</nav>

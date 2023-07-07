@@ -32,6 +32,12 @@ import { SigninbroComponent } from './signinbro/signinbro.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { DataComponent } from './data/data.component';
+import { MyordersComponent } from './myorders/myorders.component';
+import { ProductsListComponent } from './products-list/products-list.component';
+import { CartComponent } from './cart/cart.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { RoleComponent } from './role/role.component';
 // import { DataComponent } from './data/data.component';
 
 const routers: Routes = [
@@ -57,6 +63,24 @@ const routers: Routes = [
   {
     path :'data' , component : DataComponent, canActivate: [isUserLoggedInGuard]
   },
+  {
+    path :'productList' , component : ProductsListComponent, canActivate: [isUserLoggedInGuard]
+  },
+  {
+    path :'cart' , component : CartComponent, canActivate: [isUserLoggedInGuard]
+  },
+  {
+    path :'thankyou' , component : ThankyouComponent, canActivate: [isUserLoggedInGuard]
+  },
+  {
+    path :'role' , component : RoleComponent, canActivate: [isUserLoggedInGuard]
+  },
+  {
+    path :'forgotpassword' , component : ForgotPasswordComponent, 
+  },
+  {
+    path :'myorders' , component : MyordersComponent, canActivate: [isUserLoggedInGuard]
+  },
   { path : 'product-department', component:ProductTableComponent, canActivate: [isUserLoggedInGuard]},
   { path: '**', component: SigninbroComponent },
   
@@ -79,6 +103,12 @@ const routers: Routes = [
     SigninbroComponent,
     DropdownComponent,
     DataComponent,
+    MyordersComponent,
+    ProductsListComponent,
+    CartComponent,
+    ThankyouComponent,
+    ForgotPasswordComponent,
+    RoleComponent,
   ],
   imports: [
     BrowserModule,

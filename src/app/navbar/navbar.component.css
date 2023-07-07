@@ -7,4 +7,109 @@
     width: 100%;
     z-index: 100;
   }
+  .button {
+
+    width: 100px;
   
+    height: 40px;
+  
+    border-radius: 10px;
+   
+  
+    cursor: pointer;
+  
+    position: relative;
+  
+    transition: 0.2s;
+  
+    top: 2px;
+  
+    background: #fff;
+  
+    box-shadow:  0 4px 10px rgba(0, 0, 0, 0.1);
+  
+    backdrop-filter: blur(1.9px);
+  
+    -webkit-backdrop-filter: blur(1.9px);
+  
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  
+  }
+  
+  
+  
+  
+  .button::before {
+  
+    position: absolute;
+  
+    content: 'User';
+  
+    font-size: 15px;
+  
+    font-weight: 500;
+  
+    display: flex;
+  
+    justify-content: center;
+  
+    align-items: center;
+  
+    background-color: #d1f827;
+  
+    width: 50px;
+  
+    height: 29px;
+  
+    border-radius: 5px;
+  
+    box-shadow:  0 4px 10px rgba(0, 0, 0, 0.1);
+  
+    margin: 5px;
+  
+    transition: 0.2s;
+  
+  }
+  
+  
+  
+  
+  /* input:checked+.button {
+  
+    background-color: #0b71cbc9;
+  
+  } */
+  
+  
+  
+  
+  input:checked+.button::before {
+  
+    content: 'Admin';
+  
+    font-size: 15px;
+  
+    font-weight: 500;
+  
+    display: flex;
+  
+    justify-content: center;
+  
+    align-items: center;
+  
+    transform: translateX(40px);
+  
+    background-color: #106dbd;
+  
+    color: #fff;
+  
+    border: 1px solid #fff;
+  
+    box-shadow:  0 4px 10px rgba(0, 0, 0, 0.1);
+  
+  }
+  input {
+
+    display: none;
+  
+  }
