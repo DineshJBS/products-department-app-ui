@@ -58,7 +58,7 @@ changeToAdmin(user : any){
   }
   );
 }
-
+ 
 changeToUser(user : any){
   console.log(user)
   const userData ={
@@ -69,7 +69,7 @@ changeToUser(user : any){
     'Authorization',
     'Basic ' + btoa(this.username + ':' + this.password)
   );
-  return this.http.post('http://localhost:8080/customer/changerole/user', userData,  { headers }).subscribe({
+  return this.http.post('http://localhost:8080/customer/changerole/user', user,  { headers }).subscribe({
     next: () => console.log('Product added successfully'),
       error: () => console.log('Error adding product'),
   });

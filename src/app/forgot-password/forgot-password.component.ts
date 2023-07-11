@@ -44,10 +44,17 @@ export class ForgotPasswordComponent {
     this.email = this.forgotpassword.value.email??'';
     console.log(this.forgotpassword.value.email)
     this.showOtpForm = false;
-
+    const email = {
+      email : this.email
+    }
+    return this.http.post('http://localhost:8080/customer/sendotp', email).subscribe();
      
   }
 
+  
+
+    
+  
 
     onSubmitOtp(){
      
@@ -58,6 +65,8 @@ export class ForgotPasswordComponent {
         console.log(response.status);
         if(response.status === 'true'){
           this.showPasswordResetForm = false;
+        }else{
+          alert("The OTP you have entered is invalid!")
         }
       }
         

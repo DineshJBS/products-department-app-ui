@@ -10,6 +10,7 @@ import { CartService } from '../cart.service';
 })
 export class ProductsListComponent {
 
+  currency : string = '$'
   username!: string;
   password!: string;
   baseUrl: string = 'http://localhost:8080';

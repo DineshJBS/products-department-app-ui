@@ -33,7 +33,7 @@ makePdf(){
     const imgHeight = table.offsetHeight * (imgWidth / table.offsetWidth);
 
     pdf.addImage(dataUrl, 'PNG', 0, 0, imgWidth, imgHeight);
-    pdf.save(`${this.username} orders.pdf`);
+    pdf.save(`${this.username}.orders - ${this.currentDate}.pdf `);
   });
 }
 

@@ -24,6 +24,7 @@ export class HomeComponent {
 
   username!: string;
   password!: string;
+  formDataForUpdate! : any;
 
   productData!: any;
   constructor(private router: Router, private http: HttpClient) {}
@@ -107,6 +108,11 @@ export class HomeComponent {
 
   update(product: any) {
     console.log('this is old product name ' + product);
+    // this.formDataForUpdate = {
+    //   productName: product.productName,
+    //   deptName: product.deptName,
+    // }
+    // this.product = this.formDataForUpdate;
     let oldProductId = product.productId;
     let productName = window.prompt('Enter the product name!');
     let departmentName = window.prompt('Enter the department name!');
@@ -119,6 +125,7 @@ export class HomeComponent {
         ' ' +
         product.deptName
     );
+   
 
     const productFormData = {
       productName: product.productName,
